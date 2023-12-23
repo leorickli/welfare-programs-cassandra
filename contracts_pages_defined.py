@@ -3,7 +3,7 @@ import json
 
 def get_api_data(organization_code, initial_date, number_of_pages):
     url = "https://api.portaldatransparencia.gov.br/api-de-dados/contratos"
-    key = "34ed1e6231d354e35948e24139e48ee9"
+    key = "<unique_key_generated_for_you>" # This is the key that you get when you sing up to Portal da Transparência
 
     params = {"codigoOrgao": organization_code, "quantidade": 100, "dataInicial": initial_date, "page": 1}
     headers = {"accept": "*/*", "chave-api-dados": key}
