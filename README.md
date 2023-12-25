@@ -14,8 +14,8 @@ The following GCP resources and other tools were used:
 - **Dataproc**: A cluster was created to process the data in its raw and curated stages through the use of Python and PySpark.
 - **Pandas, Matplotlib, Scikit Learn**: For deeper analysis and visualizations, these tools were used to make more complex analysis with the data inside Cassandra.
 
-## 1. Create an infrastructure around Cassandra and load a public dataset
+### 1. Create an infrastructure around Cassandra and load a public dataset
 
-
+A Dataproc cluster was created so I could work with Jupyter Notebooks using Python and PySpark
 
 Business question: Given the initial price date (valorInicialCompra) and final date (valorFinalCompra) of each contract, what is the average discrepancy of the given values, the amount of contracts that had this increase in value compared to the others and the contract that had the highest discrepancy so far?
