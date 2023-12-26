@@ -124,7 +124,7 @@ With the analysis in the [Python notebook](https://github.com/leorickli/cassandr
 
 - Cassandra is great for NoSQL types of data but when it comes to more complex data analysis, a traditional data warehouse will be enough for visualizations too.
 - I wasted some time setting up an SSH key to access the Cassandra VM on my local machine. There is no need for that, just make the modifications on "cassandra.yaml" for it to work.
-- PySpark can send data directly to the VM, I find it more interesting to send it to a curated stage so data can be accessed by different resources, like BigQuery, like in the example below:
+- PySpark can send data directly to the VM, I find it more interesting to send it to a curated stage so data can be accessed by different resources, like BigQuery, as shown in the examples below:
 
 <img width="566" alt="Screenshot 2023-12-25 at 17 08 57" src="https://github.com/leorickli/cassandra-portal-da-transparencia/assets/106999054/550db8ea-9c05-4c21-99d5-7591d9392089">
 
