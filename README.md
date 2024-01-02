@@ -112,7 +112,10 @@ COPY contratos_table_full (
     unidadeGestora_orgaoMaximo_sigla, unidadeGestora_orgaoVinculado_cnpj, unidadeGestora_orgaoVinculado_codigoSIAFI,
     unidadeGestora_orgaoVinculado_nome, unidadeGestora_orgaoVinculado_sigla, unidadeGestoraCompras_orgaoMaximo_codigo,
     unidadeGestoraCompras_orgaoMaximo_nome, unidadeGestoraCompras_orgaoMaximo_sigla, unidadeGestoraCompras_orgaoVinculado_cnpj,
-    unidadeGestoraCompras_orgaoVinculado_codigoSIAFI, unidadeGestoraCompras_orgaoVinculado_nome, unidadeGestoraCompras_orgaoVinculado_sigla) FROM '/home/leonardo_moreira/contratos_curated.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+    unidadeGestoraCompras_orgaoVinculado_codigoSIAFI, unidadeGestoraCompras_orgaoVinculado_nome, unidadeGestoraCompras_orgaoVinculado_sigla
+    )
+    FROM '/home/leonardo_moreira/contratos_curated.csv'
+    WITH DELIMITER=',' AND HEADER=TRUE;
 ```
 
 It's important to declare all of the columns again so Cassandra recognizes each one of them individually along with the delimiter and the existence of the header. With that, we can start querying the database using the CQL querying language through the "cqlsh" command:
