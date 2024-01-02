@@ -45,7 +45,7 @@ Then we ingest the data from the bucket in the curated folder into the VM with t
 gsutil cp gs://cassandra-project-leorickli/curated/contratos_curated.csv .
 ```
 
-We create a keyspace and a table with the schema first, so we can then ingest the data into Cassandra:
+Using CQL, we create a keyspace and a table with the schema first, so we can then ingest the data into Cassandra:
 
 ```
 CREATE TABLE IF NOT EXISTS contratos_table_full (
@@ -101,7 +101,18 @@ CREATE TABLE IF NOT EXISTS contratos_table_full (
 Now we can ingest data into the table, using the following command:
 
 ```
-COPY contratos_table_full (dataAssinatura, dataFimVigencia, dataInicioVigencia, dataPublicacaoDOU, fundamentoLegal, id, modalidadeCompra, numero, numeroProcesso, objeto, situacaoContrato, valorFinalCompra, valorInicialCompra, compra_contatoResponsavel, compra_numero, compra_numeroProcesso, compra_objeto, fornecedor_cnpjFormatado, fornecedor_cpfFormatado, fornecedor_id, fornecedor_nome, fornecedor_nomeFantasiaReceita, fornecedor_numeroInscricaoSocial, fornecedor_razaoSocialReceita, fornecedor_tipo, unidadeGestora_codigo, unidadeGestora_descricaoPoder, unidadeGestora_nome, unidadeGestoraCompras_codigo, unidadeGestoraCompras_descricaoPoder, unidadeGestoraCompras_nome, unidadeGestora_orgaoMaximo_codigo, unidadeGestora_orgaoMaximo_nome, unidadeGestora_orgaoMaximo_sigla, unidadeGestora_orgaoVinculado_cnpj, unidadeGestora_orgaoVinculado_codigoSIAFI, unidadeGestora_orgaoVinculado_nome, unidadeGestora_orgaoVinculado_sigla, unidadeGestoraCompras_orgaoMaximo_codigo, unidadeGestoraCompras_orgaoMaximo_nome, unidadeGestoraCompras_orgaoMaximo_sigla, unidadeGestoraCompras_orgaoVinculado_cnpj, unidadeGestoraCompras_orgaoVinculado_codigoSIAFI, unidadeGestoraCompras_orgaoVinculado_nome, unidadeGestoraCompras_orgaoVinculado_sigla) FROM '/home/leonardo_moreira/contratos_curated.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+COPY contratos_table_full (
+    dataAssinatura, dataFimVigencia, dataInicioVigencia, dataPublicacaoDOU,fundamentoLegal,
+    id, modalidadeCompra, numero, numeroProcesso, objeto, situacaoContrato, valorFinalCompra,
+    valorInicialCompra, compra_contatoResponsavel, compra_numero, compra_numeroProcesso, compra_objeto,
+    fornecedor_cnpjFormatado, fornecedor_cpfFormatado, fornecedor_id, fornecedor_nome, fornecedor_nomeFantasiaReceita,
+    fornecedor_numeroInscricaoSocial, fornecedor_razaoSocialReceita, fornecedor_tipo, unidadeGestora_codigo,
+    unidadeGestora_descricaoPoder, unidadeGestora_nome, unidadeGestoraCompras_codigo, unidadeGestoraCompras_descricaoPoder,
+    unidadeGestoraCompras_nome, unidadeGestora_orgaoMaximo_codigo, unidadeGestora_orgaoMaximo_nome,
+    unidadeGestora_orgaoMaximo_sigla, unidadeGestora_orgaoVinculado_cnpj, unidadeGestora_orgaoVinculado_codigoSIAFI,
+    unidadeGestora_orgaoVinculado_nome, unidadeGestora_orgaoVinculado_sigla, unidadeGestoraCompras_orgaoMaximo_codigo,
+    unidadeGestoraCompras_orgaoMaximo_nome, unidadeGestoraCompras_orgaoMaximo_sigla, unidadeGestoraCompras_orgaoVinculado_cnpj,
+    unidadeGestoraCompras_orgaoVinculado_codigoSIAFI, unidadeGestoraCompras_orgaoVinculado_nome, unidadeGestoraCompras_orgaoVinculado_sigla) FROM '/home/leonardo_moreira/contratos_curated.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 ```
 
 It's important to declare all of the columns again so Cassandra recognizes each one of them individually along with the delimiter and the existence of the header. With that, we can start querying the database using the CQL querying language through the "cqlsh" command:
