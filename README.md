@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS contratos_table_full (
 );
 ```
 
-Now we can ingest data into the table, using the following command:
+Now we can ingest data into the table, using the following cql command:
 
 ```
 COPY contratos_table_full (
